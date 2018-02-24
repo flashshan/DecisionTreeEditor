@@ -1,0 +1,64 @@
+<DecisionTreeTable>
+  <Layer layerName="BGMDT" active="True" UpdateInterval="60">
+    <DTNode Name="Root">
+      <DTNode Name="IsDayStart">
+        <Condition Type="TimeCondition" TimePhases="{(0,10)}" Nor="false" />
+        <Result Type="BGMResult" BGMState="BGM_DayStart" />
+      </DTNode>
+      <DTNode Name="IsDayMiddle">
+        <Condition Type="TimeCondition" TimePhases="{(10,16)}" Nor="false" />
+        <Result Type="BGMResult" BGMState="BGM_DayMiddle" />
+      </DTNode>
+      <DTNode Name="IsDayEnd">
+        <Condition Type="TimeCondition" TimePhases="{(16,24)}" Nor="false" />
+        <Result Type="BGMResult" BGMState="BGM_DayEnd" />
+      </DTNode>
+    </DTNode>
+  </Layer>
+  <Layer layerName="SkyColorDT" active="True" UpdateInterval="10">
+    <DTNode Name="Root">
+      <DTNode Name="NightSky">
+        <Condition Type="TimeCondition" TimePhases="{(20,24);(0,4)}" Nor="false" />
+        <Result Type="SkyColorResult" SkyColor="(0.289576143,0.324767351,0.382352948,0)" />
+      </DTNode>
+      <DTNode Name="MorningSky">
+        <Condition Type="TimeCondition" TimePhases="{(4,10)}" Nor="false" />
+        <Result Type="SkyColorResult" SkyColor="(0.8572515,0.875,0.7463235,0)" />
+      </DTNode>
+      <DTNode Name="NoonSky">
+        <Condition Type="TimeCondition" TimePhases="{(10,15)}" Nor="false" />
+        <Result Type="SkyColorResult" SkyColor="(0.9338235,0.914692461,0.240322232,0)" />
+      </DTNode>
+      <DTNode Name="AfternoonSky">
+        <Condition Type="TimeCondition" TimePhases="{(15,20)}" Nor="false" />
+        <Result Type="SkyColorResult" SkyColor="(0.9632353,0.6736786,0.410791516,0)" />
+      </DTNode>
+    </DTNode>
+  </Layer>
+  <Layer layerName="CameraEffectDT" active="True" UpdateInterval="10">
+    <DTNode Name="Root">
+      <DTNode Name="UnderWater">
+        <Condition Type="UnderWaterCondition" RequireUnderGround="true" Nor="false" />
+        <DTNode Name="TemperatureCool">
+          <Condition Type="TemperatureCondition" TemperatureRange="{(0,20)}" Nor="false" />
+          <Result Type="CameraEffectResult" CameraEffectState="NoWaterCool" />
+        </DTNode>
+        <DTNode Name="TemperatureHot">
+          <Condition Type="TemperatureCondition" TemperatureRange="{(20,40)}" Nor="false" />
+          <Result Type="CameraEffectResult" CameraEffectState="NoWaterHot" />
+        </DTNode>
+      </DTNode>
+      <DTNode Name="NotUnderWater">
+        <Condition Type="UnderWaterCondition" RequireUnderGround="false" Nor="false" />
+        <DTNode Name="TemperatureCool">
+          <Condition Type="TemperatureCondition" TemperatureRange="{(0,20)}" Nor="false" />
+          <Result Type="CameraEffectResult" CameraEffectState="WaterCool" />
+        </DTNode>
+        <DTNode Name="TemperatureHot">
+          <Condition Type="TemperatureCondition" TemperatureRange="{(20,40)}" Nor="false" />
+          <Result Type="CameraEffectResult" CameraEffectState="WaterHot" />
+        </DTNode>
+      </DTNode>
+    </DTNode>
+  </Layer>
+</DecisionTreeTable>

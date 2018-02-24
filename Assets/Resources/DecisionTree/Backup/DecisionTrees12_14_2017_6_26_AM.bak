@@ -1,0 +1,21 @@
+<DecisionTreeTable>
+  <Layer layerName="BGMDT" UpdateInterval="60">
+    <DTNode Name="Root">
+      <DTNode Name="IsDayStart">
+        <Condition Type="TimeCondition" TimePhases="{(0,10)}" Nor="false" />
+        <Result Type="BGMResult" BGMState="BGM_DayStart" />
+      </DTNode>
+      <DTNode Name="IsDayMiddle">
+        <Condition Type="TimeCondition" TimePhases="{(10,16)}" Nor="false" />
+        <Result Type="BGMResult" BGMState="BGM_DayMiddle" />
+      </DTNode>
+      <DTNode Name="IsDayEnd">
+        <Condition Type="TimeCondition" TimePhases="{(16,24)}" Nor="false" />
+        <Result Type="BGMResult" BGMState="BGM_DayEnd" />
+      </DTNode>
+    </DTNode>
+  </Layer>
+  <Layer layerName="SkyColorDT" UpdateInterval="30">
+    <DTNode Name="Root" />
+  </Layer>
+</DecisionTreeTable>

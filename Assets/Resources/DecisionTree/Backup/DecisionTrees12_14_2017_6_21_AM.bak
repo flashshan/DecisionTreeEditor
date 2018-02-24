@@ -1,0 +1,7 @@
+<DecisionTreeTable>
+  <Layer layerName="BGMDT" UpdateInterval="60">
+    <DTNode Name="Root">
+      <Condition Type="TestCondition" testBool="false" testInt="0" testFloat="0" testVector2="(0,0)" testVector3="(0,0,0)" testVector4="(0,0,0,0)" testColor="(0,0,0,0)" testBoolArray="{}" testIntArray="{}" testFloatArray="{}" testVector2Array="{}" testVector3Array="{}" testVector4Array="{}" testColorArray="{}" Nor="false" />
+    </DTNode>
+  </Layer>
+</DecisionTreeTable>
